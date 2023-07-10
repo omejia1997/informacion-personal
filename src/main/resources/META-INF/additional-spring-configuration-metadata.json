@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "gpr.docencia.informacion.personal.mongo.aut",
+    "type": "java.lang.String",
+    "description": "A description for 'gpr.docencia.informacion.personal.mongo.aut'"
+  },
+  {
+    "name": "gpr.docencia.informacion.personal.mongo.host",
+    "type": "java.lang.String",
+    "description": "A description for 'gpr.docencia.informacion.personal.mongo.host'"
+  },
+  {
+    "name": "gpr.docencia.informacion.personal.mongo.usr",
+    "type": "java.lang.String",
+    "description": "A description for 'gpr.docencia.informacion.personal.mongo.usr'"
+  },
+  {
+    "name": "gpr.docencia.informacion.personal.mongo.pwd",
+    "type": "java.lang.String",
+    "description": "A description for 'gpr.docencia.informacion.personal.mongo.pwd'"
+  },
+  {
+    "name": "gpr.docencia.informacion.personal.mongo.db",
+    "type": "java.lang.String",
+    "description": "A description for 'gpr.docencia.informacion.personal.mongo.db'"
+  }
+]}
