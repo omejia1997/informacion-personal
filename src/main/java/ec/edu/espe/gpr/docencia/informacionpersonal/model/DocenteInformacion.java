@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Document(collection = "docente")
 @TypeAlias("docente")
-public class Docente {
+public class DocenteInformacion {
 
     @Id 
     private String id;
@@ -47,9 +47,9 @@ public class Docente {
 
     private String etnia;
 
-    private Date grupoEtnico;
+    private String grupoEtnico;
 
-    private Integer correoPrincipal;
+    private String correoPrincipal;
 
     private String correoAlternativo;
 

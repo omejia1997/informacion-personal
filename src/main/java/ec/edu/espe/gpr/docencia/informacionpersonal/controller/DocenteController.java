@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.espe.gpr.docencia.informacionpersonal.model.Docente;
+import ec.edu.espe.gpr.docencia.informacionpersonal.model.DocenteInformacion;
 import ec.edu.espe.gpr.docencia.informacionpersonal.services.DocenteService;
 import lombok.RequiredArgsConstructor;
 
@@ -23,7 +23,7 @@ public class DocenteController {
     private DocenteService docenteService;
 
     @PostMapping
-    public ResponseEntity<String> guardarInformacion(@RequestBody Docente docente) {
+    public ResponseEntity<String> guardarInformacion(@RequestBody DocenteInformacion docente) {
         try {
             this.docenteService.guardarInformacion(docente);
             return ResponseEntity.ok().build();
@@ -34,7 +34,7 @@ public class DocenteController {
     }
     
     @PutMapping("/modificar")
-    public ResponseEntity<String> actualizarInformacion(@RequestBody Docente docente) {
+    public ResponseEntity<String> actualizarInformacion(@RequestBody DocenteInformacion docente) {
         try {
             this.docenteService.actualizarInformacion(docente);
             return ResponseEntity.ok().build();

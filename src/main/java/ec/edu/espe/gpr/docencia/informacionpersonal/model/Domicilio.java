@@ -29,6 +29,4 @@ public class Domicilio {
     private String telefonoDomicilio;
 
     private String telefonoCelular;
-
-    private Domicilio domicilio;
 }
