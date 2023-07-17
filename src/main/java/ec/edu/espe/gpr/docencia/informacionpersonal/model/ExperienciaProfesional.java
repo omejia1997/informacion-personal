@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Builder
@@ -12,16 +16,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ExperienciaProfesional {
-    
+
+    private String codigoExperiencia;
+
     private String nombreInstitucion;
 
     private String puesto;
 
     private String unidadAdministrativa;
 
+    private String tipoInstitucion;
+
     private String modalidadContratacion;
 
-    private String fechaIngreso;
+    private LocalDate fechaIngreso;
 
     private String motivoSalidaLaboral;
 

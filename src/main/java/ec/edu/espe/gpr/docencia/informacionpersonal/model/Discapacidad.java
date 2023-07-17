@@ -21,7 +21,7 @@ public class Discapacidad {
 
     private String numeroCarnet;
 
-    private String enfermedadCatastrófica;
+    private String enfermedadCatastrofica;
 
     private String tipoEnfermedadCatastrofica;
 }

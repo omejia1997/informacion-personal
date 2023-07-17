@@ -1,6 +1,6 @@
 package ec.edu.espe.gpr.docencia.informacionpersonal.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Data
@@ -29,12 +30,15 @@ public class FormacionAcademica {
 
     private String numeroRegistroSenescyt;
 
-    private Date fechaRegistroSenescyt;
+    private LocalDate fechaRegistroSenescyt;
 
     private String pais;
 
-    private Date fechaGraduacion;
+    private LocalDate fechaGraduacion;
 
     private List<FormacionAcademicaAdicional> formacionAcademicaAdicionales;
-    
+
+    private List<Idioma> idiomas;
+
+    private List<Publicacion> publicaciones;
 }

@@ -1,5 +1,6 @@
 package ec.edu.espe.gpr.docencia.informacionpersonal.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 @NoArgsConstructor
@@ -29,9 +31,12 @@ public class DocenteInformacion {
     @Indexed(name = "idx_docente_numeroDocumento", unique = true)
     private String numeroDocumento;
 
+    @Indexed(name = "idx_docente_idEspe", unique = true)
+    private String idEspe;
+
     private String nombreCompleto;
 
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     private String genero;
 

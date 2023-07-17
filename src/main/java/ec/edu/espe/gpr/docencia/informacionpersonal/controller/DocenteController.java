@@ -2,12 +2,7 @@ package ec.edu.espe.gpr.docencia.informacionpersonal.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import ec.edu.espe.gpr.docencia.informacionpersonal.model.DocenteInformacion;
 import ec.edu.espe.gpr.docencia.informacionpersonal.services.DocenteService;
@@ -22,6 +17,15 @@ public class DocenteController {
     @Autowired
     private DocenteService docenteService;
 
+    @GetMapping(path = "/obtenerDocentePorIdEspe/{idEspe}")
+    public ResponseEntity<DocenteInformacion> obtenerDocentePorIdEspe(@PathVariable String idEspe) {
+        try {
+            DocenteInformacion docente = this.docenteService.obtenerDocentePorIdEspe(idEspe);
+            return ResponseEntity.ok(docente);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
     @PostMapping
     public ResponseEntity<String> guardarInformacion(@RequestBody DocenteInformacion docente) {
         try {
@@ -33,7 +37,7 @@ public class DocenteController {
         }
     }
     
-    @PutMapping("/modificar")
+    @PutMapping
     public ResponseEntity<String> actualizarInformacion(@RequestBody DocenteInformacion docente) {
         try {
             this.docenteService.actualizarInformacion(docente);
