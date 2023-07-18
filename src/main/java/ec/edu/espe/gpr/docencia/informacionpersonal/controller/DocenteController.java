@@ -8,6 +8,8 @@ import ec.edu.espe.gpr.docencia.informacionpersonal.model.DocenteInformacion;
 import ec.edu.espe.gpr.docencia.informacionpersonal.services.DocenteService;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @CrossOrigin(origins= {"https://yellow-river-0ca1d1510.3.azurestaticapps.net","http://localhost:4200"})
 @RestController
 @RequestMapping(path = "/docente")
@@ -22,6 +24,16 @@ public class DocenteController {
         try {
             DocenteInformacion docente = this.docenteService.obtenerDocentePorIdEspe(idEspe);
             return ResponseEntity.ok(docente);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping(path = "/listarTodosDocentes")
+    public ResponseEntity<List<DocenteInformacion>> listarTodosDocentes() {
+        try {
+            List<DocenteInformacion> docentes = this.docenteService.listarTodosDocentes();
+            return ResponseEntity.ok(docentes);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

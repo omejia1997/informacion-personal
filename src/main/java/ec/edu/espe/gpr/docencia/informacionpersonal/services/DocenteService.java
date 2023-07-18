@@ -1,14 +1,13 @@
 package ec.edu.espe.gpr.docencia.informacionpersonal.services;
 
+import ec.edu.espe.gpr.docencia.informacionpersonal.dao.DocenteDao;
+import ec.edu.espe.gpr.docencia.informacionpersonal.model.DocenteInformacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ec.edu.espe.gpr.docencia.informacionpersonal.dao.DocenteDao;
-import ec.edu.espe.gpr.docencia.informacionpersonal.model.DocenteInformacion;
-
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class DocenteService {
@@ -18,6 +17,10 @@ public class DocenteService {
 
     public DocenteInformacion obtenerDocentePorIdEspe(String idEspe){
         return this.docenteDao.findByIdEspe(idEspe);
+    }
+
+    public List<DocenteInformacion> listarTodosDocentes() {
+        return this.docenteDao.findAll();
     }
     public void guardarInformacion(DocenteInformacion docente){
         if(docente.getFechaNacimiento()!=null){
@@ -38,5 +41,4 @@ public class DocenteService {
         docente.setFechaEntrega(new Date());
         this.docenteDao.save(docente);
     }
-    
 }
