@@ -76,4 +76,6 @@ public class DocenteInformacion {
 
     private Date fechaEntrega;
 
+    private ImagenUser imagenUser;
+
 }

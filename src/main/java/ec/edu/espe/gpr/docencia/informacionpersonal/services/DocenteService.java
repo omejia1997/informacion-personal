@@ -4,6 +4,7 @@ import ec.edu.espe.gpr.docencia.informacionpersonal.dao.DocenteDao;
 import ec.edu.espe.gpr.docencia.informacionpersonal.model.DocenteInformacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -22,7 +23,7 @@ public class DocenteService {
     public List<DocenteInformacion> listarTodosDocentes() {
         return this.docenteDao.findAll();
     }
-    public void guardarInformacion(DocenteInformacion docente){
+    public void guardarInformacion(DocenteInformacion docente, MultipartFile file){
         if(docente.getFechaNacimiento()!=null){
             LocalDate fechaActual = LocalDate.now();
             int edad = docente.getFechaNacimiento().until(fechaActual).getYears();
@@ -32,7 +33,7 @@ public class DocenteService {
         this.docenteDao.save(docente);
     }
 
-    public void actualizarInformacion(DocenteInformacion docente){
+    public void actualizarInformacion(DocenteInformacion docente,MultipartFile file){
         if(docente.getFechaNacimiento()!=null){
             LocalDate fechaActual = LocalDate.now();
             int edad = docente.getFechaNacimiento().until(fechaActual).getYears();
