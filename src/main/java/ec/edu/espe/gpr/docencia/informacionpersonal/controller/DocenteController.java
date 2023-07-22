@@ -3,6 +3,7 @@ package ec.edu.espe.gpr.docencia.informacionpersonal.controller;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
+import ec.edu.espe.gpr.docencia.informacionpersonal.model.ImagenUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -71,6 +72,17 @@ public class DocenteController {
             DocenteInformacion docenteInformacion= gson.fromJson(strDocente, DocenteInformacion.class);
             this.docenteService.actualizarInformacion(docenteInformacion,file);
             return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping("/obtenerImagenBase64/{imageName}")
+    public ResponseEntity<ImagenUser> obtenerImagenBase64(@PathVariable String imageName) {
+        try {
+            ImagenUser imagenUser = this.docenteService.obtenerArchivoComoBase64(imageName);
+            return ResponseEntity.ok(imagenUser);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.badRequest().build();

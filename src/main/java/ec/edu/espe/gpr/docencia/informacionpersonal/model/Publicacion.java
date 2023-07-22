@@ -33,4 +33,6 @@ public class Publicacion {
     private Integer volumenPublicacion;
 
     private String revisionPares;
+
+    private String doi;
 }

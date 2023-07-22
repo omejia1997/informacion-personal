@@ -9,7 +9,9 @@ import lombok.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ImagenUser {
 
-    private String nombre;
+    private String nombreImagen;
 
     private String urlImagen;
+
+    private String fileBase64;
 }
