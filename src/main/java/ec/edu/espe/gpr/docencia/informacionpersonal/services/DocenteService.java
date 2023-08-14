@@ -58,7 +58,7 @@ public class DocenteService {
         docente.setFechaEntrega(new Date());
         DocenteInformacion docenteInformacion = this.docenteDao.save(docente);
         if(file!=null){
-            String nombreImagen = docenteInformacion.getId()+"."+this.obtenerExtensionArchivo(file);
+            String nombreImagen = docenteInformacion.getId()+".jpg";
             docenteInformacion.setImagenUser(new ImagenUser());
             docenteInformacion.getImagenUser().setUrlImagen(this.azureStorageService.subirArchivo(nombreImagen,file));
             docenteInformacion.getImagenUser().setNombreImagen(nombreImagen);
@@ -73,7 +73,7 @@ public class DocenteService {
 
     public void actualizarInformacion(DocenteInformacion docente,MultipartFile file) throws IOException {
         if(file!=null){
-            String nombreImagen = docente.getId()+"."+this.obtenerExtensionArchivo(file);
+            String nombreImagen = docente.getId()+".jpg";
             docente.setImagenUser(new ImagenUser());
             docente.getImagenUser().setUrlImagen(this.azureStorageService.actualizarImagen(nombreImagen,file));
             docente.getImagenUser().setNombreImagen(nombreImagen);
